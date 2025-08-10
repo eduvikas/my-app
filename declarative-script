@@ -1,0 +1,26 @@
+pipeline {
+    agent any 
+    stages {
+	    stage('SCM-Checkout') { 
+            steps {
+                git branch: 'main', credentialsId: 'git-credentials', 
+                url: 'https://github.com/eduvikas/my-app.git'
+            }
+        }
+        stage('Build') { 
+            steps {
+                echo  "I am in build step" 
+            }
+        }
+        stage('Test') { 
+            steps {
+                echo  "I am in test step" 
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                echo  "I am in deploy step" 
+            }
+        }
+    }
+}
